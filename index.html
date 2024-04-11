@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+
+    <title>autokomis</title>
+<style>
+    section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+header{
+    display: flex;
+    justify-content: center;
+}
+main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+fieldset{
+    margin: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center ;
+    flex-wrap: wrap;
+}
+label{
+    /* width: 30%; */
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+.przyc{
+    margin: 10px;
+}
+.przyc>*{
+    width: 140px;
+    height: 40px;
+    margin: 10px;
+    border: 1px grey solid;
+border-radius: 10px;
+-webkit-box-shadow: 8px 8px 15px -7px rgba(66, 68, 90, 1);
+-moz-box-shadow: 8px 8px 15px -7px rgba(66, 68, 90, 1);
+box-shadow: 8px 8px 15px -7px rgba(66, 68, 90, 1);
+}
+#display{
+    margin-top: 40px;
+    border: 2px grey solid;
+border-radius: 10px;
+-webkit-box-shadow: 8px 8px 37px -14px rgba(66, 68, 90, 1);
+-moz-box-shadow: 8px 8px 37px -14px rgba(66, 68, 90, 1);
+box-shadow: 8px 8px 37px -14px rgba(66, 68, 90, 1);
+}
+main{
+    border: 2px grey solid;
+border-radius: 10px;
+-webkit-box-shadow: 8px 8px 37px -14px rgba(66, 68, 90, 1);
+-moz-box-shadow: 8px 8px 37px -14px rgba(66, 68, 90, 1);
+box-shadow: 8px 8px 37px -14px rgba(66, 68, 90, 1);
+}
+.element{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+    border: 2px grey solid;
+ border-radius: 10px;
+-webkit-box-shadow: 8px 8px 37px -14px rgba(66, 68, 90, 1);
+-moz-box-shadow: 8px 8px 37px -14px rgba(66, 68, 90, 1);
+box-shadow: 8px 8px 37px -14px rgba(66, 68, 90, 1);;
+}
+.element>button{
+    width: 50px;
+    height: 40px;
+    margin: 10px;
+}
+.element>*{
+margin: 10px;
+}
+.container{
+
+    width: 50%;}
+
+    body{
+        display: flex;
+    justify-content: center;
+    }
+footer{
+    display: flex;
+    justify-content: center;
+}
+
+</style>
+</head>
+<body>
+    <div class="container">
+    <header><h1><b>Autokomis</b></h1></header>
+<main>
+    <fieldset>
+        <legend>Dane samochodu:</legend>
+       <label for="marka"> Marka samochodu <select name="marka" id="marka" >
+            <option value=""></option>
+           <option value="hyundai">hyundai</option>
+           <option value="mazda">mazda</option>
+           <option value="bmw">bmw</option>
+           <option value="volvo">volvo</option>
+       </select>
+    </label>
+        <label for="model" >Model samochodu <input type="text" placeholder="np. CX 5" id="model"></label>
+
+      <label for="rok" > Rok produkcji <input type="month" id="rok"><br></label>
+
+        <label for="kolor" >Kolor <input type="text" id="kolor" placeholder="np. SPRING BLUE"></label>
+
+        <label for="przeb"> Przebieg: <input type="text" id="przeb"> tyś. km<br> </label>
+ </fieldset>
+ <div class="przyc">
+       <button id="dod">Dodaj samochod</button>
+       <button id="szuk">Szukaj samochodu</button>
+       <button id="wys">Wyswietl wszystkie</button>
+  </div>
+
+
+</main>
+<section>
+    <div id="display">
+    
+    
+    </div>
+</section>
+  
+    <footer>&copy Me</footer>
+    </div>
+</body>
+
+<script>
+    const tablica=[]
+const dod=document.querySelector(`#dod`)
+dod.addEventListener(`click`,e=>{
+    e.preventDefault()
+    const marka=document.querySelector(`#marka`).value
+    const model=document.querySelector(`#model`).value
+    const rok=document.querySelector(`#rok`).value
+    const kolor=document.querySelector(`#kolor`).value
+    const przeb=document.querySelector(`#przeb`).value
+    const auto={
+        marka: marka,
+        model: model,
+        rok: rok,
+        kolor: kolor,
+        przeb: przeb
+    }
+    tablica.push(auto)
+    const display=document.querySelector(`#display`)
+    display.innerHTML=` <div class="element">
+            <div> 
+                <h3>${auto.marka}</h3>
+                <p>model:${auto.model}, kolor:${auto.kolor}, rok produkcji:${auto.rok}, przebieg:${auto.przeb}</p>
+            </div>
+            <button>usuń</button>
+        </div>`
+})
+</script>
+
+
+
+
+
+
+
+</html>
